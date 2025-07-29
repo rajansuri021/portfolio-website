@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import { PERSONAL_INFO, SKILLS, PROJECTS, CERTIFICATES, ACHIEVEMENTS, EDUCATION } from './constants';
+import AnimatedSection from './components/AnimatedSection';
 
 const App: React.FC = () => {
   return (
@@ -22,11 +23,21 @@ const App: React.FC = () => {
           email={PERSONAL_INFO.email}
           phone={PERSONAL_INFO.phone}
         />
-        <About bio={PERSONAL_INFO.bio} />
-        <Skills skills={SKILLS} />
-        <Projects projects={PROJECTS} />
-        <Experience education={EDUCATION} certificates={CERTIFICATES}/>
-        <Achievements achievements={ACHIEVEMENTS} />
+        <AnimatedSection>
+          <About bio={PERSONAL_INFO.bio} />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Skills skills={SKILLS} />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Projects projects={PROJECTS} />
+        </AnimatedSection>
+        <AnimatedSection>
+          <Experience education={EDUCATION} certificates={CERTIFICATES}/>
+        </AnimatedSection>
+        <AnimatedSection>
+          <Achievements achievements={ACHIEVEMENTS} />
+        </AnimatedSection>
       </main>
       <Contact 
         email={PERSONAL_INFO.email}

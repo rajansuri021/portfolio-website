@@ -13,6 +13,22 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ name, linkedin, github, email, phone }) => {
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetElement = document.getElementById('contact');
+    
+    if (targetElement) {
+      const headerHeight = 80; // Estimate header height to offset scroll
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section className="pt-24 pb-12 sm:pt-32 sm:pb-16">
       <div>
@@ -38,9 +54,17 @@ const Hero: React.FC<HeroProps> = ({ name, linkedin, github, email, phone }) => 
              <span className="hidden sm:inline">{phone}</span>
           </div>
         </div>
-        <div className="mt-10">
-            <a href={`mailto:${email}`} className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">
+        <div className="mt-10 flex flex-wrap gap-4">
+            <a href="#contact" onClick={handleScrollToContact} className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">
                 Get In Touch
+            </a>
+            {/* IMPORTANT: Place your resume file (e.g., 'rajan-suri-resume.pdf') in the root project folder */}
+            <a 
+              href="/rajan-suri-resume.pdf"
+              download="Rajan_Suri_Resume.pdf"
+              className="px-6 py-3 bg-transparent border border-indigo-400 text-indigo-300 font-semibold rounded-lg shadow-md hover:bg-indigo-500/20 transition-all duration-300 transform hover:scale-105"
+            >
+              Download Resume
             </a>
         </div>
       </div>
