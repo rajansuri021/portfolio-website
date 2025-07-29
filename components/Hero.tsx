@@ -58,10 +58,12 @@ const Hero: React.FC<HeroProps> = ({ name, linkedin, github, email, phone }) => 
             <a href="#contact" onClick={handleScrollToContact} className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">
                 Get In Touch
             </a>
-            {/* IMPORTANT: Place your resume file (e.g., 'rajan-suri-resume.pdf') in the root project folder */}
+            {/* IMPORTANT: The resume file must be in the root folder of your project and named 'rajan-suri-resume.pdf' */}
             <a 
               href="/rajan-suri-resume.pdf"
-              download="Rajan_Suri_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
               className="px-6 py-3 bg-transparent border border-indigo-400 text-indigo-300 font-semibold rounded-lg shadow-md hover:bg-indigo-500/20 transition-all duration-300 transform hover:scale-105"
             >
               Download Resume
